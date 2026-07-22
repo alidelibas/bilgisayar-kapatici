@@ -1,0 +1,84 @@
+BILGISAYAR KAPATICI - Tek Parca .exe Nasil Alinir?
+======================================================
+
+Bu klasorde uygulamanin kodu var (main.py, icon.ico). Ben Windows
+degil Linux ortaminda calistigim icin gercek bir .exe dosyasini
+kendim uretemiyorum. Ama asagidaki YONTEM 1 ile, kendi
+bilgisayarina HICBIR SEY KURMADAN (Python bile gerekmiyor),
+sadece bir internet tarayicisi kullanarak tek parca, tasinabilir
+bir .exe dosyasi alabilirsin. Islemi GitHub'in kendi bilgisayarlari
+senin yerine yapiyor.
+
+
+YONTEM 1 - Hicbir sey kurmadan, tarayici ile (ONERILEN)
+==========================================================
+
+ADIM 1: Ucretsiz GitHub hesabi ac
+------------------------------------
+Tarayicinda https://github.com adresine git. Zaten hesabin varsa
+bu adimi atla. Yoksa "Sign up" ile ucretsiz bir hesap olustur
+(sadece e-posta yeterli, kart bilgisi istemez).
+
+ADIM 2: Yeni bir "repository" (depo) olustur
+------------------------------------------------
+Giris yaptiktan sonra sag ustteki "+" isaretine, ardindan
+"New repository" secenegine tikla. Isim kismina ornegin
+"bilgisayar-kapatici" yaz. "Public" secili kalabilir.
+En altta "Create repository" butonuna bas.
+
+ADIM 3: Dosyalari yukle
+-----------------------------
+Acilan sayfada "uploading an existing file" (veya "Add file" >
+"Upload files") linkine tikla. Sonra bu klasordeki (bilgisayar_kapatici)
+TUM icerigi -- main.py, icon.ico, ve ".github" klasoru dahil --
+oldugu gibi surukleyip birak. Onemli: ".github" klasorunun
+yapisi bozulmadan yuklenmesi gerekiyor (klasoru oldugu gibi
+surukleyin, tek tek dosya secmeyin).
+
+Sayfanin altinda "Commit changes" (yesil buton) tikla.
+
+ADIM 4: Otomatik derlemenin bitmesini bekle
+-----------------------------------------------
+Depo sayfasinda ust kisimdaki "Actions" sekmesine tikla.
+"EXE Olustur" adinda bir islemin calistigini goreceksin
+(sari nokta = calisiyor, yesil tik = bitti). Bu genelde
+1-3 dakika surer. Sayfayi yenileyerek kontrol edebilirsin.
+
+ADIM 5: .exe dosyasini indir
+---------------------------------
+Islem bitip yesil tik gorununce, o islemin (workflow run) uzerine
+tikla. Sayfanin EN ALTINDA "Artifacts" basligi altinda
+"BilgisayarKapatici-exe" adinda bir dosya gorunecek. Ona tiklayarak
+indir. Inen dosya bir .zip'tir; icini actiginda gercek, tek parca,
+kurulum gerektirmeyen "BilgisayarKapatici.exe" dosyasini bulacaksin.
+
+Bu .exe dosyasini istedigin yere (masaustu, USB bellek, vb.)
+kopyalayip cift tiklayarak dogrudan calistirabilirsin -- baska
+hicbir kurulum gerekmez.
+
+
+YONTEM 2 - Kendi bilgisayarinda, Python kurarak (alternatif)
+================================================================
+Eger GitHub kullanmak istemiyorsan, kendi bilgisayarina Python
+kurup tek seferlik bir komutla da .exe uretebilirsin:
+
+1. https://python.org adresinden Python indirip kur
+   ("Add Python to PATH" kutusunu isaretlemeyi unutma)
+2. main.py'nin oldugu klasorde bir komut istemi (cmd) ac
+3. Su komutu calistir:
+       pip install pyinstaller pystray pillow
+4. Sonra su komutu calistir:
+       pyinstaller --onefile --noconsole --icon=icon.ico --name "BilgisayarKapatici" main.py
+5. Olusan dosya: dist\BilgisayarKapatici.exe
+
+
+NOTLAR
+=========
+- Iki yontem de AYNI main.py kodunu kullanir, sonuc ayni exe'dir.
+- "Uyku Modu" bazi bilgisayarlarda guc ayarlarina gore farkli
+  davranabilir.
+- "Alarm Cal" secilirse sure sonunda bilgisayar kapanmaz, "Iptal Et"
+  butonuna basana kadar sesli alarm calar.
+- Bazi antivirus programlari PyInstaller ile yapilmis exe dosyalarini
+  yanlislikla supheli isaretleyebilir; bu bilinen zararsiz bir
+  durumdur, gerekirse istisnaya ekleyebilirsin.
