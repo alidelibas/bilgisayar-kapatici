@@ -211,7 +211,7 @@ class BilgisayarKapatici(tk.Tk):
                   font=("Segoe UI", 8)).grid(row=1, column=4)
 
         # --- Geri sayim gostergesi ---
-        self.countdown_lbl = tk.Label(body, text="00:05:00", bg=COLOR_BG,
+        self.countdown_lbl = tk.Label(body, text="01:00:00", bg=COLOR_BG,
                                        fg=COLOR_ACCENT, font=("Segoe UI", 30, "bold"))
         self.countdown_lbl.pack(pady=(2, 10))
 
