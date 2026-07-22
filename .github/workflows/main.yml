@@ -1,0 +1,30 @@
+name: EXE Olustur
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Gerekli kutuphaneleri kur
+        run: pip install pyinstaller pystray pillow
+
+      - name: Tek dosya .exe olustur
+        run: pyinstaller --onefile --noconsole --icon=icon.ico --name BilgisayarKapatici main.py
+
+      - name: EXE dosyasini yukle (indirilebilir hale getir)
+        uses: actions/upload-artifact@v4
+        with:
+          name: BilgisayarKapatici-exe
+          path: dist/BilgisayarKapatici.exe
