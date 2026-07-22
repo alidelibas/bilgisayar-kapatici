@@ -45,7 +45,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(sys.argv[0]))
 ICON_PATH = os.path.join(BASE_DIR, "icon.ico")
 
 # ---------------------------------------------------------------------------
-# Renkler - Koyu, goz yormayan tema (Claude arayuzune benzer sicak koyu ton)
+# Renkler - Koyu tema 
 # ---------------------------------------------------------------------------
 COLOR_BG = "#262624"            # ana arka plan (koyu, sicak gri)
 COLOR_TITLEBAR = "#1F1E1D"      # baslik cubugu (biraz daha koyu)
@@ -101,7 +101,7 @@ class BilgisayarKapatici(tk.Tk):
 
         # Pencereyi ekranda ortala
         self.update_idletasks()
-        w, h = 380, 700
+        w, h = 350, 650
         sw, sh = self.winfo_screenwidth(), self.winfo_screenheight()
         x, y = (sw - w) // 2, (sh - h) // 2
         self.geometry(f"{w}x{h}+{x}+{y}")
