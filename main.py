@@ -188,8 +188,8 @@ class BilgisayarKapatici(tk.Tk):
         time_row = tk.Frame(time_card, bg=COLOR_CARD)
         time_row.pack(padx=14, pady=(0, 14))
 
-        self.hour_var = tk.StringVar(value="00")
-        self.min_var = tk.StringVar(value="05")
+        self.hour_var = tk.StringVar(value="01")
+        self.min_var = tk.StringVar(value="00")
         self.sec_var = tk.StringVar(value="00")
 
         self.hour_spin = self._make_spinbox(time_row, self.hour_var, 0, 23)
