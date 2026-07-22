@@ -397,7 +397,7 @@ class BilgisayarKapatici(tk.Tk):
             m = int(self.min_var.get())
             s = int(self.sec_var.get())
         except ValueError:
-            h, m, s = 0, 5, 0
+            h, m, s = 1, 0, 0
         return h * 3600 + m * 60 + s
 
     def _format_seconds(self, total):
