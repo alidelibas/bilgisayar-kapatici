@@ -101,7 +101,7 @@ class BilgisayarKapatici(tk.Tk):
 
         # Pencereyi ekranda ortala
         self.update_idletasks()
-        w, h = 380, 560
+        w, h = 380, 700
         sw, sh = self.winfo_screenwidth(), self.winfo_screenheight()
         x, y = (sw - w) // 2, (sh - h) // 2
         self.geometry(f"{w}x{h}+{x}+{y}")
